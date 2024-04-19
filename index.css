@@ -183,3 +183,17 @@ body, html {
     margin-left: 80%;
     margin-top: -25%;
 }
+
+.righ{
+    margin-right: 5%;
+}
+.righ button{
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 500;
+    font-size: large;
+    border: 0px;
+    cursor: pointer;
+    border-radius: 8px;
+}

@@ -21,27 +21,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// JavaScript code to log out the user and redirect to index.html
 
+// JavaScript code to log out the user and redirect to index.html
 
-const submit = document.getElementById("submit_register");
-submit.addEventListener("click", function(event){
+// Get the logout button element
+const logoutButton = document.getElementById("logout");
+
+// Add event listener to the logout button
+logoutButton.addEventListener("click", function(event) {
     event.preventDefault();
 
-    const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    alert("User Created",user)
-    window.location.href = '/Home.html';
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert("Error:" + errorMessage)
-  });
-
-})
-
+    // Sign out the user
+    auth.signOut().then(() => {
+        // Sign-out successful, redirect to index.html
+        window.location.href = '/index.html';
+    }).catch((error) => {
+        // An error happened.
+        console.error('Error logging out:', error);
+    });
+});
